@@ -1,12 +1,17 @@
 const remoteURL = "https://catnames-api-j2bcdgtj5a-ts.a.run.app/";
 const localURL = "http://localhost:8086/";
-const url = localURL;
+const url = remoteURL;
 
 export const getNames = async () => {
     const responsePromise = fetch(url);
     const response = await responsePromise;
     const jsonResponse = await response.json();
     return jsonResponse;
+};
+
+const headerObject = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
 };
 
 export const addName = async (name, occupation) => {
@@ -16,10 +21,7 @@ export const addName = async (name, occupation) => {
     };
     const responsePromise = fetch(url, {
         method: "POST",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
+        headers: headerObject,
         body: JSON.stringify(newcat),
     });
     const response = await responsePromise;
@@ -33,10 +35,7 @@ export const deleteName = async (id) => {
     };
     const responsePromise = fetch(url, {
         method: "DELETE",
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
+        headers: headerObject,
         body: JSON.stringify(toDelete),
     });
     const response = await responsePromise;
