@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Catnames</title>
+    </head>
+    <body>
+        <p>
+            Even though this seems like one of the worst-made pages in the
+            history of the internet, it's actually very impressive. The frontend
+            uses async things to do queries of an API program that lives in a
+            container running on Google Cloudrun. The program was made in java
+            using spring boot and then containerized with docker. This API talks
+            to an SQL server which runs on Google Cloud SQL to store the cat
+            names list
+        </p>
+        <h3>Name this cat</h3>
+        <p>
+            You have been bestowed with the honor of naming this cat. What would
+            you call this cat?
+        </p>
+        <img src="https://img-9gag-fun.9cache.com/photo/aDdzp0Z_700bwp.webp" />
+        <br />
+        <button id="addNewNameButton">Add Name</button>
+        <input id="nameBox" type="text" placeholder="name" />
+        <input id="occupationBox" type="text" placeholder="occupation" />
+        <br />
+        <button id="deleteNameButton">Delete Name</button>
+        <input id="idBox" type="text" placeholder="id" />
+
+        <div id="namesDisplay"></div>
+    </body>
+    <script type="module" src="scripts/api.js"></script>
+    <script type="module" src="scripts/DOM.js"></script>
+</html>
