@@ -1,0 +1,93 @@
+body {
+  padding-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  text-align: justify;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 25px;
+}
+
+a {
+  border: 3px solid #7777fa;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 30px;
+  color: black;
+  background-color: #ececec;
+}
+a:hover {
+  background-color: #d1ceee;
+}
+
+h3,
+h4,
+h5 {
+  text-align: center;
+}
+
+h4 {
+  font-weight: normal;
+}
+
+#cat-image {
+  max-width: 95vw;
+  display: block;
+  margin: auto;
+}
+
+.codeSnippet {
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.diagram {
+  max-width: 95vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-height: 120vh;
+}
+
+@media only screen and (max-width: 750px) {
+  #architecture-image-horizontal {
+    display: none;
+  }
+}
+@media only screen and (min-width: 751px) {
+  #architecture-image-horizontal {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  #architecture-image-vertical {
+    display: block;
+  }
+}
+@media only screen and (min-width: 751px) {
+  #architecture-image-vertical {
+    display: none;
+  }
+}
+
+.buttonsAndBoxes {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 70px;
+}

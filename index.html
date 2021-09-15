@@ -5,32 +5,88 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Catnames</title>
+        <link rel="stylesheet" href="./css/styles.css" />
     </head>
     <body>
-        <p>
-            Even though this seems like one of the worst-made pages in the
-            history of the internet, it's actually very impressive. The frontend
-            uses async things to do queries of an API program that lives in a
-            container running on Google Cloudrun. The program was made in java
-            using spring boot and then containerized with docker. This API talks
-            to an SQL server which runs on Google Cloud SQL to store the cat
-            names list
-        </p>
-        <h3>Name this cat</h3>
-        <p>
-            You have been bestowed with the honor of naming this cat. What would
-            you call this cat?
-        </p>
-        <img src="https://img-9gag-fun.9cache.com/photo/aDdzp0Z_700bwp.webp" />
+        <h3>Name this Cat</h3>
+        <h4>
+            The honor of naming this cat has been bestowed upon you. What would
+            you call this cat? It is also looking for a job - can you suggest an
+            occupation?
+        </h4>
+        <img id="cat-image" src="./images/cat-image.webp" />
         <br />
-        <button id="addNewNameButton">Add Name</button>
-        <input id="nameBox" type="text" placeholder="name" />
-        <input id="occupationBox" type="text" placeholder="occupation" />
-        <br />
-        <button id="deleteNameButton">Delete Name</button>
-        <input id="idBox" type="text" placeholder="id" />
+        <div class="buttonsAndBoxes">
+            <div id="namesDisplay"></div>
+            <input id="nameBox" type="text" placeholder="Name" />
+            <input id="occupationBox" type="text" placeholder="Occupation" />
+            <button id="addNewNameButton">Submit Entry</button>
+            <br />
 
-        <div id="namesDisplay"></div>
+            <input id="idBox" type="text" placeholder="id" />
+            <button id="deleteNameButton">Delete Entry</button>
+        </div>
+        <h3>About this Page</h3>
+        <p>
+            This page might not look like much, but it's what lies beneath that
+            is key: its purpose is merely to demonstrate its back-end
+            architecture. The frontend uses javascript async/await functions to
+            make requests of a custom API program that I built. The program was
+            made in Java using Spring Boot, with separate Controller, Service,
+            Entity, Repository and Payload classes. The finished program was
+            then containerized with Docker and instantiated as a service on
+            Google Cloudrun. The API program connects to an SQL server which
+            runs on Google Cloud SQL to store the cat names and occupations
+            list.
+        </p>
+        <a
+            href="https://github.com/NickRoach/catnames-api-java/tree/main/src/main/java/com/catnames"
+            >See the Java code on GitHub</a
+        >
+        <img
+            class="diagram"
+            id="architecture-image-horizontal"
+            src="./images/architecture-diagram-horizontal.svg"
+        />
+        <img
+            class="diagram"
+            id="architecture-image-vertical"
+            src="./images/architecture-diagram-vertical.svg"
+        />
+        <p>
+            The Java-API receives all requests at the same endpoint. To retrieve
+            a list of all of the records stored in the database, a GET request
+            is made. It is not necessary to include anything in the body of the
+            request. Functionality to retrieve a single record by ID was not
+            implemented as it is unnecessary for this demonstration.
+        </p>
+        <p>
+            To enter a new record in the database, a POST request is made
+            including a body object (JSON formatted) containing the key-value
+            pairs of "name" and "occupation". An id is automatically assigned to
+            the record by the Spring Boot program because of the annotation
+            "@GeneratedValue(strategy = GenerationType.IDENTITY)" included in
+            the CatnamesEntity.
+        </p>
+        <div>
+            <h5>Example request body for POST:</h5>
+            <img class="codeSnippet" src="./images/POST-Object.svg" />
+        </div>
+        <p>
+            To delete a record, a DELETE request is made to the API endpoint
+            with a JSON-formatted object in the request body containing the "id"
+            key and the id value of the record to be deleted.
+        </p>
+        <h5>Example request body for DELETE:</h5>
+        <img class="codeSnippet" src="./images/DELETE-Object.svg" />
+        <p>
+            Because the API is hosted at a different domain than the frontend
+            page, it was necessary to deal with CORS rules. The annotation
+            @CrossOrigin(origins = "https://nickroach.github.io/", maxAge =
+            3600) was included in the CatnamesController to take care of this.
+            The API will only fulfill requests made by browsers running
+            javascript programs running at that domain.
+        </p>
     </body>
     <script type="module" src="scripts/api.js"></script>
     <script type="module" src="scripts/DOM.js"></script>
