@@ -25,14 +25,20 @@ deleteNameButton.addEventListener("click", async (event) => {
 });
 
 function reRender(catNames) {
-    document.getElementById("namesDisplay").innerHTML = "";
-    for (let i = 0; i < catNames.length; i++) {
-        document.getElementById("namesDisplay").innerHTML +=
-            catNames[i].id +
-            ". " +
-            catNames[i].name +
-            "_____Occupation: " +
-            catNames[i].occupation +
-            "<br>";
+    if (catnames.length > 0) {
+        document.getElementById("namesDisplay").innerHTML = "";
+        for (let i = 0; i < catNames.length; i++) {
+            document.getElementById("namesDisplay").innerHTML +=
+                "id: " +
+                catNames[i].id +
+                ". " +
+                catNames[i].name +
+                ", Occupation: " +
+                catNames[i].occupation +
+                "<br>";
+        }
+    } else {
+        document.getElementById("namesDisplay").innerHTML =
+            "Nothing to display";
     }
 }
