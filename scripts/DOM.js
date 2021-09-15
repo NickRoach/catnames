@@ -25,7 +25,7 @@ deleteNameButton.addEventListener("click", async (event) => {
 });
 
 function reRender(catNames) {
-    if (catnames.length > 0) {
+    if (catNames.length > 0) {
         document.getElementById("namesDisplay").innerHTML = "";
         for (let i = 0; i < catNames.length; i++) {
             document.getElementById("namesDisplay").innerHTML +=
