@@ -32,12 +32,13 @@
         <p>
             The purpose of this simple page is to demonstrate its backend
             architecture. The frontend uses javascript async/await functions to
-            make requests of a custom API program that I built. The program was
-            made in Java using Spring Boot, with separate Controller, Service,
-            Entity, Repository and Payload classes. The finished program was
-            then containerized with Docker and deployed as a service on Google
-            Cloudrun. The API program connects to an SQL server which runs on
-            Google Cloud SQL to store the cat names and occupations list.
+            make requests of a custom REST API program that I built. The program
+            was made in Java using Spring Boot, with separate Controller,
+            Service, Entity, Repository and Payload classes. The finished
+            program was then containerized with Docker and deployed as a service
+            on Google Cloudrun. The REST API program connects to an SQL server
+            which runs on Google Cloud SQL to store the cat names and
+            occupations list.
         </p>
         <a
             href="https://github.com/NickRoach/catnames-api-java/tree/main/src/main/java/com/catnames"
@@ -54,11 +55,11 @@
             src="./images/architecture-diagram-vertical.svg"
         />
         <p>
-            The Java-API receives all requests at the same endpoint. To retrieve
-            a list of all of the records stored in the database, a GET request
-            is made. It is not necessary to include anything in the body of the
-            request. Functionality to retrieve a single record by ID was not
-            implemented as it is unnecessary for this demonstration.
+            The Java REST API receives all requests at the same endpoint. To
+            retrieve a list of all of the records stored in the database, a GET
+            request is made. It is not necessary to include anything in the body
+            of the GET request. Functionality to retrieve a single record by ID
+            was not implemented as it is unnecessary for this demonstration.
         </p>
         <p>
             To enter a new record in the database, a POST request is made
