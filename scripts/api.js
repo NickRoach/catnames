@@ -31,7 +31,8 @@ export const addName = async (name, occupation) => {
 };
 
 export const deleteName = async (id) => {
-    const responsePromise = fetch(url + id, {
+    const delUrl = url + id;
+    const responsePromise = fetch(delUrl, {
         method: "DELETE",
         headers: headerObject,
     });
