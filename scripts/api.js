@@ -31,13 +31,10 @@ export const addName = async (name, occupation) => {
 };
 
 export const deleteName = async (id) => {
-    const toDelete = {
-        id: id,
-    };
-    const responsePromise = fetch(url, {
+    const delUrl = url + id;
+    const responsePromise = fetch(delUrl, {
         method: "DELETE",
         headers: headerObject,
-        body: JSON.stringify(toDelete),
     });
     const response = await responsePromise;
     const jsonResponse = await response.json();

@@ -55,11 +55,12 @@
             src="./images/architecture-diagram-vertical.svg"
         />
         <p>
-            The Java REST API receives all requests at the same endpoint. To
-            retrieve a list of all of the records stored in the database, a GET
-            request is made. It is not necessary to include anything in the body
-            of the GET request. Functionality to retrieve a single record by ID
-            was not implemented as it is unnecessary for this demonstration.
+            The Java REST API receives GET and POST requests at the same
+            endpoint. To retrieve a list of all of the records stored in the
+            database, a GET request is made. It is not necessary to include
+            anything in the body of the GET request. Functionality to retrieve a
+            single record by ID was not implemented as it is unnecessary for
+            this demonstration.
         </p>
         <p>
             To enter a new record in the database, a POST request is made
@@ -74,12 +75,10 @@
             <img class="codeSnippet" src="./images/POST-Object.svg" />
         </div>
         <p>
-            To delete a record, a DELETE request is made to the API endpoint
-            with a JSON-formatted object in the request body containing the "id"
-            key and the id value of the record to be deleted.
+            To delete a record, a DELETE request is made to the endpoint with
+            "/{id}" appended. The API controller DELETE method calls the DELETE
+            service method and passes it the record id for deletion.
         </p>
-        <h5>Example request body for DELETE:</h5>
-        <img class="codeSnippet" src="./images/DELETE-Object.svg" />
         <p>
             Because the API is hosted at a different domain than the frontend
             page, it was necessary to deal with CORS rules. The annotation
